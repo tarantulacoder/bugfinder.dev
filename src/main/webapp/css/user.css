@@ -9,7 +9,7 @@
     color: white;
     text-align: center;
     align-items: center;
-    width: 450px;
+    width: 400px;
     height: 650px;
     margin-top: 120px;
     margin-right: 100px;
@@ -20,8 +20,8 @@
     display: inline-block;
     font-family: 'Baloo 2', sans-serif;
     font-size: 20px;
-    width: 450px;
-    height: 650px;
+    width: 400px;
+    height: 600px;
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 120px;
@@ -32,8 +32,8 @@
 }
 .input{
     font-family: 'Baloo 2', sans-serif;
-    width: 350px;
-    height: 43px;
+    width: 300px;
+    height: 38px;
     margin-right: auto;
     margin-left: auto;
     margin-top: 20px;
@@ -41,27 +41,28 @@
     padding-right: 20px;
     border-radius: 30px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     background-color: white;
     border: 0px solid #00FF0C;
     text-align: center;
+    outline: 0 !important;
 }
 .register_text {
     color: white;
-    font-size: 35px;
+    font-size: 30px;
     margin-top: 10px;
 }
 .button {
     font-family: 'Baloo 2', sans-serif;
-    height: 60px;
-    width: 200px;
+    height: 50px;
+    width: 180px;
     border-radius: 30px;
     padding-top: 2.5px;
     margin-top: 20px;
     background-color: #191121;
     color: white;
     border: 2px solid #00FF0C;
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: auto;
     cursor: pointer;
     outline: 0 !important;
