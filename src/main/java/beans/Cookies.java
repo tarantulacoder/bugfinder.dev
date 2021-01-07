@@ -27,6 +27,7 @@ public class Cookies {
                 .getExternalContext()
                 .getRequestCookieMap();
         Cookie number = (Cookie) requestCookieMap.get("user_number");
+        if (number == null) return "";
         return number.getValue();
     }
 }
