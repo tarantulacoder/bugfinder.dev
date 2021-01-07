@@ -1,12 +1,20 @@
 package beans;
 
+import javax.annotation.ManagedBean;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
+@Named()
+@RequestScoped()
+@ManagedBean
+
 public class User {
+
     private String login;
     private String email;
     private String passwd;
@@ -50,11 +58,11 @@ public class User {
         this.setCookies_number(random_number);
         connection = database.connect();
         if(connection != null){
-            try (PreparedStatement stmt = connection.prepareStatement("insert into users(login,email,passwd,cookies_number) values(?,?,?,?,?);")) {
+            try (PreparedStatement stmt = connection.prepareStatement("insert into users(login,email,passwd,cookies_number) values(?,?,?,?);")) {
                 stmt.setString(1, this.getLogin());
                 stmt.setString(2, this.getEmail());
                 Password passwordHash = new Password();
-                stmt.setString(3, passwordHash.hash512(this.getPasswd()));
+                stmt.setString(3, passwordHash.hash256(this.getPasswd()));
                 stmt.setString(4, this.getCookies_number());
                 stmt.executeUpdate();
             }
@@ -73,7 +81,7 @@ public class User {
         if(connection != null) {
             try (PreparedStatement stmt = connection.prepareStatement(statement)) {
                 stmt.setString(1, this.getEmail());
-                stmt.setString(2, passwordHash.hash512(this.getPasswd()));
+                stmt.setString(2, passwordHash.hash256(this.getPasswd()));
                 ResultSet rs = stmt.executeQuery();
                 if (rs.next()) {
                     redirect = true;

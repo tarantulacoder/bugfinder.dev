@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Password {
 
-    public String hash512(String passwd){
+    public String hash256(String passwd){
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] bytes = md.digest(passwd.getBytes(StandardCharsets.UTF_8));

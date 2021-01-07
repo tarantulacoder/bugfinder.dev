@@ -29,11 +29,11 @@
         <div class="register">
             <h:form>
                 <div class="register_text"> Register </div>
-                <h:inputText id="login" class="input" a:placeholder="Login" />
-                <h:inputText id="email" class="input" a:placeholder="E-mail" />
-                <h:inputText id="passwd" class="input" a:placeholder="Password" />
+                <h:inputText id="login" class="input" a:placeholder="Login" value="#{user.login}" />
+                <h:inputText id="email" class="input" a:placeholder="E-mail" value="#{user.email}" />
+                <h:inputText id="passwd" class="input" a:placeholder="Password" value="#{user.passwd}" />
                 <h:inputText id="passwd2" class="input" a:placeholder="Re-password" />
-                <h:commandButton class="button" value="Register" />
+                <h:commandButton class="button" value="Register" action="#{user.register}" />
             </h:form>
         </div>
     </div>
