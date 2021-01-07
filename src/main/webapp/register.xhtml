@@ -14,9 +14,17 @@
     <div class="top">
         <a href="home.xhtml"> <img src="images/bugfinder.png" alt="bugfinder.dev"/> </a>
         <div class="buttons">
-            <h:commandButton class="help_button" value="Help" />
-            <h:commandButton class="register_button" value="Register" />
-            <h:commandButton class="login_button" value="Log in" />
+            <h:form rendered="#{!user.isUserLogged()}">
+                <h:commandButton class="help_button" value="Help" />
+                <h:commandButton class="register_button" value="Register" action="register?faces-redirect=true"/>
+                <h:commandButton class="login_button" value="Log in" action="login?faces-redirect=true" />
+            </h:form>
+            <h:form rendered="#{user.isUserLogged()}">
+                <h:commandButton class="help_button" value="Help" />
+                <h:commandButton class="register_button" value="Log out" action="register?faces-redirect=true"/>
+                <h:commandButton class="login_button" value="Profile" action="login?faces-redirect=true" />
+            </h:form>
+
         </div>
 
     </div>
@@ -31,8 +39,8 @@
                 <div class="register_text"> Register </div>
                 <h:inputText id="login" class="input" a:placeholder="Login" value="#{user.login}" />
                 <h:inputText id="email" class="input" a:placeholder="E-mail" value="#{user.email}" />
-                <h:inputText id="passwd" class="input" a:placeholder="Password" value="#{user.passwd}" />
-                <h:inputText id="passwd2" class="input" a:placeholder="Re-password" />
+                <h:inputSecret id="passwd" class="input" a:placeholder="Password" value="#{user.passwd}" />
+                <h:inputSecret id="passwd2" class="input" a:placeholder="Re-password" />
                 <h:commandButton class="button" value="Register" action="#{user.register}" />
             </h:form>
         </div>
