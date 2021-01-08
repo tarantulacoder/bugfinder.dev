@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="css/user.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800" rel="stylesheet"/>
 </h:head>
-
 <h:body>
     <div class="top">
         <a href="home.xhtml"> <img src="images/bugfinder.png" alt="bugfinder.dev"/> </a>
@@ -29,11 +28,27 @@
 
     <div class="container">
         <div class="form">
-            <div class="register_text"> Bug post form </div>
-            <h:inputText id="name" class="postinput" a:placeholder="Bug name"  />
-            <h:inputText id="keywords" class="postinput" a:placeholder="Keywords"  />
-            <h:inputTextarea id="about" class="about" a:placeholder="About" />
+            <h:form>
+                <div class="register_text"> Bug post form </div>
+                <h:inputText id="name" class="postinput" a:placeholder="Bug name"  />
+                <h:inputText id="keywords" class="postinput" a:placeholder="Keywords"  />
+                <h:inputTextarea id="about" class="about" a:placeholder="About" />
+                <div class="register_text"> Code with bug </div>
+                <div id="editor">function foo(items) {
+                    var x = "All this is syntax highlighted";
+                    return x;
+                    }</div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js" type="text/javascript" charset="utf-8"></script>
+                <script type="">
+                    var editor = ace.edit("editor");
+                    editor.setTheme("ace/theme/monokai");
+                    editor.session.setMode("ace/mode/javascript");
+                </script>
+                <h:commandButton class="button" value="Post bug"  />
+            </h:form>
+
         </div>
+
         <div class="howto">
             How to post bug:
         </div>
