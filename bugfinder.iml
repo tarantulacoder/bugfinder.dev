@@ -51,5 +51,7 @@
     <orderEntry type="library" name="Maven: org.ocpsoft.rewrite:rewrite-config-prettyfaces:3.4.4.Final" level="project" />
     <orderEntry type="library" name="Maven: org.ocpsoft.rewrite:rewrite-integration-faces:3.4.4.Final" level="project" />
     <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.7.1" level="project" />
+    <orderEntry type="library" name="prism" level="application" />
+    <orderEntry type="library" name="ace" level="application" />
   </component>
 </module>
