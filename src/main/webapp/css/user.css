@@ -131,7 +131,7 @@
     text-align: center;
     outline: 0 !important;
 }
-#editor {
+.editor {
     width: 850px;
     height: 450px;
     border-radius: 10px;

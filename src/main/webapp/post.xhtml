@@ -27,23 +27,28 @@
     </div>
     <div class="container">
         <div class="form">
-            <h:form>
+            <h:form id="form">
                 <div class="register_text"> Bug post form </div>
-                <h:inputText id="name" class="postinput" a:placeholder="Bug name"  />
-                <h:inputText id="keywords" class="postinput" a:placeholder="Keywords"  />
-                <h:inputTextarea id="about" class="about" a:placeholder="About" />
+                <h:inputText id="name" class="postinput" a:placeholder="Bug name" value="#{post.name}" />
+                <h:inputText id="keywords" class="postinput" a:placeholder="Keywords" value="#{post.category}" />
+                <h:inputTextarea id="about" class="about" a:placeholder="About" value="#{post.about}" />
                 <div class="register_text"> Code with bug </div>
-                <div id="editor">function foo(items) {
-                    var x = "All this is syntax highlighted";
-                    return x;
-                    }</div>
+                <div id="editor" class="editor"> </div>
+                <!-- Ace Code Editor - JS -->
+                <h:inputTextarea name="content" value="#{post.code}" id="content" style="visibility: hidden;" cols="1" rows="1" />
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js" type="text/javascript" charset="utf-8"></script>
-                <script type="">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type=""></script>
+                <script type="text/javascript">
+                    var obj = document.getElementById("form:content");
                     var editor = ace.edit("editor");
                     editor.setTheme("ace/theme/monokai");
-                    editor.session.setMode("ace/mode/javascript");
+                    editor.getSession().setMode("ace/mode/java");
+                    editor.getSession().on('change', function () {
+                        obj.value = editor.getSession().getValue();
+                    });
+                    obj.value = editor.getSession().getValue();
                 </script>
-                <h:commandButton class="post" value="Post bug"  />
+                <h:commandButton class="post" value="Post bug" action="#{post.addCode}"/>
             </h:form>
         </div>
         <div class="howto">
