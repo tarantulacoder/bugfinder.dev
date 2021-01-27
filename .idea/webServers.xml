@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="bcf9a484-68e6-493f-819b-75ed475a0e93" name="VPS" url="http://ourcode.io/">
-        <fileTransfer rootFolder="/root" accessType="SFTP" host="ourcode.io" port="22" sshConfigId="cdc90a45-9d7c-4bda-9ab1-17d46de985b0" sshConfig="root@ourcode.io:22 password">
+      <webServer id="bcf9a484-68e6-493f-819b-75ed475a0e93" name="VPS" url="http://37.205.12.195/">
+        <fileTransfer rootFolder="/root" accessType="SFTP" host="37.205.12.195" port="22" sshConfigId="cdc90a45-9d7c-4bda-9ab1-17d46de985b0" sshConfig="root@37.205.12.195:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

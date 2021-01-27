@@ -19,14 +19,14 @@ public class Database {
     public Connection connect() {
         Connection connection = null;
         try {
-            Class.forName("org.mariadb.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/bugfinder_dev?", DB_USER, DB_PASSWORD);
-        } catch (SQLException | ClassNotFoundException exception) {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://37.205.12.195:3306/bugfinder", DB_USER, DB_PASSWORD);
+        } catch (SQLException e) {
+        } catch (ClassNotFoundException ignored) {
+        } catch (Exception ignored) {
         }
         return connection;
     }
-
-
 
     public String getFullName(String email) throws SQLException {
         String fullName = "";

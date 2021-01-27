@@ -54,17 +54,19 @@ public class User {
         Database database = new Database();
         Connection connection = null;
         Random random = new Random();
-        String random_number = String.valueOf(random.nextInt(99999999) + 1);
+        String random_number = String.valueOf(random.nextInt(9999999) + 1);
         this.setCookies_number(random_number);
         connection = database.connect();
         if(connection != null){
-            try (PreparedStatement stmt = connection.prepareStatement("insert into users(login,email,passwd,cookies_number) values(?,?,?,?);")) {
+            //PreparedStatement stmt = connection.prepareStatement("insert into users(login,email,passwd,cookies_number) values(?,?,?,?);")
+            try (PreparedStatement stmt = connection.prepareStatement("insert into users(login, email, passwd, cookies_number) values (?,?,?,?);")) {
                 stmt.setString(1, this.getLogin());
                 stmt.setString(2, this.getEmail());
                 Password passwordHash = new Password();
                 stmt.setString(3, passwordHash.hash256(this.getPasswd()));
                 stmt.setString(4, this.getCookies_number());
                 stmt.executeUpdate();
+            } catch (Exception e) {
             }
             connection.close();
         }
